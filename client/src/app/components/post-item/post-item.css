@@ -1,0 +1,72 @@
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.01);
+}
+
+.post-content {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.action-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn.like {
+  background-color: #eaf4ff;
+  color: #007bff;
+}
+
+.action-btn.like:hover {
+  background-color: #d0e7ff;
+}
+
+.action-btn.delete {
+  background-color: #ffecec;
+  color: #e60023;
+}
+
+.action-btn.delete:hover {
+  background-color: #ffdbdb;
+}
+
+.comment-section {
+  margin-top: 10px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.comment {
+  padding: 6px 10px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  margin-top: 4px;
+  font-size: 13px;
+}
