@@ -1,33 +1,40 @@
-<div class="auth-container">
-  <div class="auth-card">
-    <h2>Register</h2>
+<div class="register-container">
+  <h2>Create Account</h2>
 
-    <form (ngSubmit)="register()" #authForm="ngForm">
+  <form (ngSubmit)="register()" #registerForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
       <input
         type="email"
+        id="email"
         name="email"
-        placeholder="Email"
         [(ngModel)]="email"
         required
-        class="auth-input"
       />
+    </div>
 
+    <div class="form-group">
+      <label for="password">Password</label>
       <input
         type="password"
+        id="password"
         name="password"
-        placeholder="Password"
         [(ngModel)]="password"
         required
-        class="auth-input"
       />
-
-      <button type="submit" class="auth-button">
-        Sign Up
-      </button>
-    </form>
-
-    <div class="switch-auth">
-      <a routerLink="/login">Already have an account? Log in</a>
     </div>
-  </div>
+
+    <button type="submit">Register</button>
+  </form>
 </div>

@@ -3,7 +3,7 @@ import { Login } from './components/login/login';
 import { Register } from './components/register/register';
 import { PostList } from './components/post-list/post-list';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: '', component: PostList }
