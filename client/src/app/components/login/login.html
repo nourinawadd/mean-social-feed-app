@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>{{ title }}</h2>
+
+    <form (ngSubmit)="onSubmit()" #authForm="ngForm">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        required
+        class="auth-input"
+      />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        required
+        class="auth-input"
+      />
+
+      <button type="submit" class="auth-button">
+        {{ buttonText }}
+      </button>
+    </form>
+
+    <div class="switch-auth">
+      <a [routerLink]="switchLink">{{ switchText }}</a>
+    </div>
+  </div>
+</div>

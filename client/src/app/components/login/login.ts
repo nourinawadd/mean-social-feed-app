@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,17 @@ export class Login {
   email = '';
   password = '';
 
-  constructor(private authService: AuthService) {}
+  title = 'Login';
+  buttonText = 'Log In';
+  switchText = "Don't have an account? Register";
+  switchLink = '/register';
 
-  login() {
-    this.authService.login({ email: this.email, password: this.password })
-      .subscribe(() => alert('Login successful'));
+  constructor(private authService: AuthService, private router: Router) {}
+
+  onSubmit() {
+    this.authService.login({ email: this.email, password: this.password }).subscribe({
+      next: () => this.router.navigate(['/']),
+      error: (err) => alert('Login failed: ' + err.error.message)
+    });
   }
 }
