@@ -4,11 +4,13 @@ require('dotenv').config();
 const connectDB = require('./config/db');
 const postRoutes = require('./routes/postRoutes');
 const userRoutes = require('./routes/userRoutes');
+const setupSwagger = require('./swagger');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 connectDB();
+setupSwagger(app);
 
 app.use(cors());
 app.use(express.json());
