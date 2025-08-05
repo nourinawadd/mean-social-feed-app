@@ -1,6 +1,6 @@
 ## 🌐 MEAN Stack Social Feed App
 
-A clean and functional **Social Feed** web application built using the **MEAN stack** (MongoDB, Express, Angular, Node.js). Users can create posts, like and delete them, and comment on others’ posts.
+A clean and functional **Social Feed** web application built using the **MEAN stack** (MongoDB, Express, Angular, Node.js). Users can register, log in, create posts, like and delete them, and comment on others’ posts.
 
 ---
 
@@ -18,11 +18,12 @@ A clean and functional **Social Feed** web application built using the **MEAN st
 
 ### 📸 Features
 
-* Create and view posts instantly
-* Like & delete posts
-* Add comments to any post
-* Realtime UI updates
-* Responsive layout
+* 🔐 **User Authentication** (Register / Login)
+* 📝 Create and view posts instantly
+* ❤️ Like & delete posts
+* 💬 Add comments to any post
+* 🔄 Realtime UI updates
+* 📱 Responsive layout
 
 ---
 
@@ -31,14 +32,14 @@ A clean and functional **Social Feed** web application built using the **MEAN st
 ```
 /project-root
 ├── /frontend/                # Angular app
-│   ├── /src/app/components/  # PostForm, PostList, PostItem
-│   ├── /src/app/services/    # post.service.ts
+│   ├── /src/app/components/  # PostForm, PostList, PostItem, Login, Register
+│   ├── /src/app/services/    # post.service.ts, auth.service.ts
 │   └── main.ts, styles.css, etc.
 │
 ├── /backend/                 # Express server
 │   ├── /config/              # DB connection
-│   ├── /controllers/         # Logic handlers
-│   ├── /models/              # Mongoose schemas
+│   ├── /controllers/         # Logic handlers (posts, users)
+│   ├── /models/              # Mongoose schemas (Post, User)
 │   ├── /routes/              # Route definitions
 │   └── server.js             # Entry point
 │
@@ -83,9 +84,10 @@ Add this:
 ```
 MONGO_URI=mongodb://localhost:27017/social-feed
 PORT=3000
+JWT_SECRET=yourSecretKeyHere
 ```
 
-> Replace with your MongoDB URI if needed.
+> Replace with your MongoDB URI and preferred secret key.
 
 4. Run the server:
 
@@ -121,15 +123,25 @@ ng serve
 
 ---
 
+### 🔐 Authentication Flow
+
+* Users can **register** with their email, username, and password
+* Registered users can **log in** and access the full social feed functionality
+* JWT tokens are used to secure authenticated API calls
+
+---
+
 ### 🔗 API Endpoints
 
-| Method | Endpoint              | Function              |
-| ------ | --------------------- | --------------------- |
-| GET    | `/posts`              | Get all posts         |
-| POST   | `/posts`              | Add a new post        |
-| POST   | `/posts/:id/like`     | Like a post           |
-| DELETE | `/posts/:id`          | Delete a post         |
-| POST   | `/posts/:id/comments` | Add a comment to post |
+| Method | Endpoint                  | Function             |
+| ------ | ------------------------- | -------------------- |
+| POST   | `/api/users/register`     | Register a new user  |
+| POST   | `/api/users/login`        | Log in existing user |
+| GET    | `/api/posts`              | Get all posts        |
+| POST   | `/api/posts`              | Add a new post       |
+| POST   | `/api/posts/:id/like`     | Like a post          |
+| DELETE | `/api/posts/:id`          | Delete a post        |
+| POST   | `/api/posts/:id/comments` | Add comment to post  |
 
 ---
 
@@ -157,9 +169,19 @@ ng serve
 
 ---
 
+### 🚧 Future Additions
+
+* Associate posts with logged-in users
+* Display the username above each post
+* Restrict delete/edit permissions to post owners
+* Add profile pages for users
+* Add pagination or infinite scroll
+
+---
+
 ### 👤 Author
 
-Developed by **Nourin Awad**
+Developed by **Nourin Awad**,
 Connect on [LinkedIn](https://www.linkedin.com/in/nourinawad/) or check more on [GitHub](https://github.com/nourinawadd)
 
 ---
