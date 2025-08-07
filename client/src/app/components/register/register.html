@@ -1,40 +1,41 @@
 <div class="register-container">
-  <h2>Create Account</h2>
-
-  <form (ngSubmit)="register()" #registerForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        [(ngModel)]="username"
+  <div class="register-card">
+    <i class="fas fa-share-alt-square logo"></i> <!-- Changed icon -->
+    <h1>Create your account</h1>
+    
+    <form (ngSubmit)="register()" class="register-form">
+      <input 
+        type="text" 
+        [(ngModel)]="username" 
+        name="username" 
+        placeholder="Username" 
+        class="text-input" 
         required
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        [(ngModel)]="email"
+      >
+      
+      <input 
+        type="email" 
+        [(ngModel)]="email" 
+        name="email" 
+        placeholder="Email" 
+        class="text-input" 
         required
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        [(ngModel)]="password"
+      >
+      
+      <input 
+        type="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        placeholder="Password" 
+        class="text-input" 
         required
-      />
+      >
+      
+      <button type="submit" class="btn">Register</button>
+    </form>
+    
+    <div class="switch-auth">
+      <p>Already have an account? <a routerLink="/login">Sign in</a></p>
     </div>
-
-    <button type="submit">Register</button>
-  </form>
+  </div>
 </div>

@@ -1,3 +1,6 @@
-<div class="feed-container">
-  <app-post-item *ngFor="let post of posts" [post]="post"></app-post-item>
+<div class="post-list-container">
+  <app-post-form></app-post-form>
+  <div class="posts">
+    <app-post-item *ngFor="let post of posts" [post]="post"></app-post-item>
+  </div>
 </div>

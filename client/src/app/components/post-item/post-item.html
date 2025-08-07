@@ -1,15 +1,42 @@
-<div class="post-card">
-  <p class="post-content">{{ post.content }}</p>
-
-  <div class="post-actions">
-    <button class="action-btn like" (click)="likePost()">❤️ Like ({{ post.likes }})</button>
-    <button class="action-btn delete" (click)="deletePost()">🗑️ Delete</button>
+<div class="post-container">
+  <div class="post-content">
+    {{ post.content }}
   </div>
-
-  <div class="comment-section">
-    <input [(ngModel)]="commentText" (keyup.enter)="addComment()" class="comment-input" placeholder="Write a comment...">
+  
+  <div class="post-footer">
+    <button class="post-action" (click)="likePost()" title="Like">
+      <i class="far fa-heart"></i> {{ post.likes || 0 }}
+    </button>
+    <button class="post-action" title="Comment">
+      <i class="far fa-comment"></i> {{ post.comments?.length || 0 }}
+    </button>
+    <button class="post-action" (click)="deletePost()" title="Delete">
+      <i class="far fa-trash-alt"></i>
+    </button>
+  </div>
+  
+  <div class="comment-section" *ngIf="post.comments && post.comments.length > 0">
     <div class="comment" *ngFor="let comment of post.comments">
-      {{ comment.text }}
+      <div class="comment-content">
+        <span class="comment-text">{{ comment.text }}</span>
+      </div>
     </div>
+  </div>
+  
+  <div class="add-comment">
+    <input 
+      type="text" 
+      [(ngModel)]="commentText" 
+      placeholder="Write a comment..." 
+      class="comment-input"
+    >
+    <button 
+      class="comment-btn" 
+      (click)="addComment()" 
+      [disabled]="!commentText?.trim()"
+      title="Post comment"
+    >
+      <i class="fas fa-paper-plane"></i>
+    </button>
   </div>
 </div>

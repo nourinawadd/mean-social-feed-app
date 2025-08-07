@@ -1,4 +1,15 @@
-<div class="post-form">
-  <textarea [(ngModel)]="content" rows="4" class="post-textarea" placeholder="What's on your mind?"></textarea>
-  <button class="submit-btn" (click)="createPost()">Post</button>
+<div class="post-form-container">
+  <form (ngSubmit)="createPost()" class="post-form">
+    <textarea 
+      [(ngModel)]="content" 
+      name="content" 
+      placeholder="What's happening?" 
+      class="post-input"
+      rows="3"
+    ></textarea>
+    
+    <div class="post-actions">
+      <button type="submit" class="btn" [disabled]="!content.trim()">Post</button>
+    </div>
+  </form>
 </div>

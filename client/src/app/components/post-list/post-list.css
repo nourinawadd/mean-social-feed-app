@@ -1,5 +1,11 @@
-.feed-container {
+.post-list-container {
   max-width: 600px;
-  margin: 30px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Adds space between posts */
+  padding: 16px;
 }

@@ -1,34 +1,27 @@
-.post-form {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin: 0 auto 30px;
-  width: 100%;
-  max-width: 600px;
+.post-form-container {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.post-textarea {
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-input {
   width: 100%;
-  border-radius: 8px;
-  border: 1px solid #ccc;
   padding: 12px;
-  font-size: 14px;
+  border: none;
+  font-size: 18px;
   resize: none;
   margin-bottom: 12px;
 }
 
-.submit-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  width: 100%;
-  transition: background 0.2s ease;
+.post-input:focus {
+  outline: none;
 }
 
-.submit-btn:hover {
-  background-color: #0056b3;
+.post-actions {
+  display: flex;
+  justify-content: flex-end;
 }
